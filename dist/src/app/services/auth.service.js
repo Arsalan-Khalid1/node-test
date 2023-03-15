@@ -47,8 +47,10 @@ class AuthService {
             if (!isMatch) {
                 throw new Error('Invalid credentials');
             }
+            user.status = 'online';
+            yield user.save();
             return { accessToken: this.generateToken({ id: user._id }), user: {
-                    id: user.id, name: user.name, email: user.email
+                    id: user.id, name: user.name, email: user.email, status: user.status
                 } };
         });
     }

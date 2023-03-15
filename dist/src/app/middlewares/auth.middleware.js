@@ -12,6 +12,7 @@ const isAuthenticated = (req, res, next) => {
     const decoded = (0, jsonwebtoken_1.verify)(req.cookies.token, config_1.default.SECRET_KEY);
     if (decoded) {
         req.user = decoded;
+        console.log(decoded);
         next();
     }
     else {

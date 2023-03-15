@@ -12,6 +12,7 @@ const isAuthenticated = (req: IGetUserAuthInfoRequest, res: Response, next: Next
     if(decoded)
     {
         req.user = decoded
+        console.log(decoded)
          next()
     }
     else
