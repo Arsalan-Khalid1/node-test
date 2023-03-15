@@ -22,7 +22,7 @@ export default class AuthController {
     const authDto: LoginDTO = req.body;
 
     const data = await authService.login(authDto);
-    return res.cookie("token", data.accessToken, { maxAge: 2 * 60 * 60 * 1000, sameSite: "none", secure: true, httpOnly: true }).status(200).json({
+    return res.cookie("token", data.accessToken, { maxAge: 2 * 60 * 60 * 1000 }).status(200).json({
       success: true,
       message: 'User has been signed in successfully',
       data: data.user,
